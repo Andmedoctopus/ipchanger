@@ -3,7 +3,10 @@ import re
 
 
 def check(chstr):
-    if len(re.findall(r'\D', chstr)) == 0:
+    if chstr == '':
+        print('Error. Try again')
+        result = -1
+    elif len(re.findall(r'\D', chstr)) == 0:
         result = 0
     else:
         print('Error: Write only digital')
@@ -39,7 +42,9 @@ while decision != 0:
        '2. Enable LAN\n'
        '3. Disable LAN\n'
        '4. Check IP addr\n'
-       '5. ipconfig /all')
+       '5. ipconfig /all\n'
+       '6. Write the command in cmd.exe\n'
+       '###############################################################\n')
 
     while(index == False):
         decision = input()
@@ -67,5 +72,9 @@ while decision != 0:
 
     elif decision == 5:
         os.system('ipconfig /all')
+        
+    elif decision == 6:
+        command = input()
+        os.system(command)
     	
     index = False
